@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,9 +23,10 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloOpgave.class.getResource("hello-view.fxml"));
 
+
         Group root = new Group();
         Scene scene = new Scene(root, width, height);
-        stage.setTitle("Face");
+        stage.setTitle("Kirby with face");
         stage.setScene(scene);
 
         gc.clearRect(0, 0, width, height);
@@ -52,14 +54,24 @@ public class HelloApplication extends Application {
 
     public static void drawMouth(int mouthSize) {
         gc.setFill(Color.BLACK);
-        gc.fillOval(250,370,mouthSize,mouthSize);
+        gc.strokeArc(280,250,90,70,-40,-100, ArcType.OPEN);
 
+
+        //Arm
+        gc.strokeArc(410,210,50,180,200,180, ArcType.OPEN);
+        gc.strokeArc(210,210,50,180,-200,180, ArcType.OPEN);
     }
 
     public static void drawEyes() {
         gc.setFill(Color.BLACK);
-        gc.fillOval(220,210,20,30);
-        gc.fillOval(360,220,20,30);
+        gc.strokeArc(260,210,50,70,-60,300, ArcType.CHORD);
+        gc.strokeArc(370,210,50,70,-60,300, ArcType.CHORD);
+
+        gc.setFill(Color.BLACK);
+        gc.fillArc(260,210,50,70,-60,300, ArcType.CHORD);
+        //gc.fillOval(220,210,20,30);
+        //gc.fillOval(360,220,20,30);
+
     }
 
     public static void main(String[] args) {
