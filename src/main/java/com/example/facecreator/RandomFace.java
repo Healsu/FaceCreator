@@ -1,7 +1,5 @@
 package com.example.facecreator;
 
-import java.util.Random;
-import javafx.scene.control.Button;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -16,8 +14,9 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.Random;
 
-public class RandomGenerator extends Application {
+public class RandomFace extends Application {
     static int width = 600;
     static int height = 600;
     static Canvas canvas = new Canvas(width, height);
@@ -26,7 +25,7 @@ public class RandomGenerator extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(RandomGenerator.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(RandomFace.class.getResource("hello-view.fxml"));
 
         Group root = new Group();
         Scene scene = new Scene(root, width, height);
@@ -41,12 +40,6 @@ public class RandomGenerator extends Application {
 
         stage.show();
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), event -> {
-            gc.clearRect(0, 0, width, height);
-            drawPrimitiveFace();
-        }));
-        timeline.setCycleCount(360);
-        timeline.play();
 
     }
 
