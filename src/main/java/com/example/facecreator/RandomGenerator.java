@@ -1,6 +1,9 @@
 package com.example.facecreator;
 
 import java.util.Random;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -10,6 +13,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -36,6 +40,12 @@ public class RandomGenerator extends Application {
         drawPrimitiveFace();
 
         stage.show();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), event -> {
+            gc.clearRect(0, 0, width, height);
+            drawPrimitiveFace();
+        }));
+        timeline.setCycleCount(360);
+        timeline.play();
     }
 
     public static void drawPrimitiveFace() {
@@ -48,8 +58,15 @@ public class RandomGenerator extends Application {
 
     public static void drawShape() {
         gc.setFill(Color.BLACK);
-        gc.strokeOval(150, 150, 300, 300);
-    }
+        Random rand3 = new Random();
+        int randShape = rand3.nextInt(2);
+                if(randShape == 0) {
+                    gc.strokeOval(150, 150, 300, 300);
+                }
+                else if(randShape == 1) {
+                    gc.strokeRect(150, 150, 300, 300);
+                }
+                }
 
     public static void drawMouth(int mouthSize) {
         //Random funktion for mund
@@ -91,8 +108,8 @@ public class RandomGenerator extends Application {
             gc.strokeLine(220,200,400,220);
         }
         else if (randEyes == 1) {
-            gc.strokeArc(260,210,50,70,-60,300, ArcType.CHORD);
-            gc.strokeArc(370,210,50,70,-60,300, ArcType.CHORD);
+            gc.strokeArc(210,190,50,70,-60,300, ArcType.CHORD);
+            gc.strokeArc(340,190,50,70,-60,300, ArcType.CHORD);
         }
         else if (randEyes == 2){
             gc.fillOval(200,220,40,40);
@@ -129,7 +146,7 @@ public class RandomGenerator extends Application {
 
         }
         else if (randBonus == 2){
-            gc.strokeArc(250,250,90,70,-40,-100, ArcType.ROUND);
+            gc.strokeArc(260,250,90,70,-40,-100, ArcType.ROUND);
         }
 
         else if (randBonus == 3){

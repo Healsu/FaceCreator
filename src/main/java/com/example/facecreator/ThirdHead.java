@@ -44,7 +44,8 @@ public class ThirdHead extends Application {
     }
 
     public static void drawShape() {
-        gc.strokeOval(150, 150, 300, 300);
+
+        gc.strokeRect(150, 150, 300, 300);
     }
 
     public static void drawMouth(int mouthSize) {
