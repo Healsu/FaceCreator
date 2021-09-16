@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,10 +30,13 @@ public class FourthHead extends Application {
 
         gc.clearRect(0, 0, width, height);
         root.getChildren().add(canvas);
+        Text t = new Text();
+        t.setText("This is a text sample");
 
         drawPrimitiveFace();
 
         stage.show();
+
     }
 
     public static void drawPrimitiveFace() {

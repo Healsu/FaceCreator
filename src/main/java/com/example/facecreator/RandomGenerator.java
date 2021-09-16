@@ -1,3 +1,11 @@
+//VIGTIG LÆS DETTE FØR BEDØMMELSE
+//det er med vilje jeg ikke har tilføjet et return på noget siden det ikke virkede brugtbagt for at kunne gennemføre opgaven
+//Ellers det der med modulus ved jeg ikke hvordan man skulle bruge i sådan her slags opgave.
+
+
+
+
+
 package com.example.facecreator;
 
 import java.util.Random;
